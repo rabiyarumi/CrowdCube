@@ -1,12 +1,29 @@
 import {
     createBrowserRouter,
   } from "react-router-dom";
-import Home from "../pages/Home";
+import Homepage from "../pages/HomePage";
+import Home from "../components/home/Home";
+import AddCampaign from "../components/AddCampaign";
+import AllCampaigns from "../components/AllCampaigns";
 
 const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home/>,
+      element: <Homepage />,
+      children: [
+        {
+            path: "/",
+            element: <Home/>,
+        },
+        {
+            path: "/campaigns",
+            element: <AllCampaigns/>,
+        },
+        {
+            path: "/addCampaigns",
+            element:<AddCampaign/>,
+        },
+      ]
     },
   ]);
 

@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer';
 
-const Home = () => {
+const Homepage = () => {
     return (
         <div className='flex flex-col min-h-screen'>
            <Navbar/>
@@ -15,4 +15,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Homepage;

@@ -1,18 +1,20 @@
-import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
 
+
     const links = (
        <>
         <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/campaign"}>Campaign</NavLink>
+        <NavLink to={"/campaigns"}>Campaigns</NavLink>
+        <NavLink to={"/addCampaigns"}>Add Campaign</NavLink>
         <NavLink to={"/myCampaign"}>My Campaign</NavLink>
+        <NavLink to={"/myCampaign"}>My Donation</NavLink>
        </>
     )
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 w-[88%] mx-auto">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -35,7 +37,7 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">Crowdcube</a>
+    <Link to={"/"} className="btn btn-ghost text-xl">Crowdcube</Link>
   </div>
 
   {/* Center */}
@@ -46,8 +48,9 @@ const Navbar = () => {
   </div>
 
   {/* End */}
-  <div className="navbar-end">
-    <a className="btn">Button</a>
+  <div className="navbar-end gap-3">
+    <Link className='btn btn-secondary'>Log in</Link>
+    <Link className='btn btn-outline'>Register</Link>
   </div>
 </div>
     );
