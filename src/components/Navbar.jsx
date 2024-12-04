@@ -49,8 +49,8 @@ const Navbar = () => {
 
   {/* End */}
   <div className="navbar-end gap-3">
-    <Link className='btn btn-secondary'>Log in</Link>
-    <Link className='btn btn-outline'>Register</Link>
+    <Link to={"/login"} className='btn btn-secondary'>Log in</Link>
+    <Link to={"/register"} className='btn btn-outline'>Register</Link>
   </div>
 </div>
     );

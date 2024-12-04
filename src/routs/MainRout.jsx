@@ -5,6 +5,8 @@ import Homepage from "../pages/HomePage";
 import Home from "../components/home/Home";
 import AddCampaign from "../components/AddCampaign";
 import AllCampaigns from "../components/AllCampaigns";
+import Login from "../components/Login";
+import Register from "../components/Register";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
         {
             path: "/addCampaigns",
             element:<AddCampaign/>,
+        },
+        {
+            path: "/login",
+            element:<Login/>,
+        },
+        {
+            path: "/register",
+            element:<Register/>,
         },
       ]
     },
