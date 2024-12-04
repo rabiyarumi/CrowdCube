@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-    const {userLogin} = useContext(AuthContext);
+    const {userLogin, googleLogin} = useContext(AuthContext);
 
     const handleLogin= e => {
         e.preventDefault();
@@ -28,6 +28,20 @@ const Login = () => {
                 icon: "error",
                 title: "Oops...",
                 text: "Invalid Email or Password",
+              });
+        })
+    }
+
+    //google login
+    const handleGoogleLogin = () => {
+        googleLogin()
+        .then(() => {
+            Swal.fire({
+                title: "Welcome Back!",
+                // text: "Let's warm Peoples Heart Together.",
+                imageUrl: "https://i.ibb.co.com/jJq2pkf/smile-imoji.webp",
+                imageHeight: 200,
+                imageAlt: "Custom image"
               });
         })
     }
@@ -74,6 +88,9 @@ const Login = () => {
   
           <div className="form-control mt-6">
             <button className="btn btn-primary">Login</button>
+          </div>
+          <div className="form-control mt-6">
+            <button onClick={handleGoogleLogin} className="btn btn-outline">Login with Google</button>
           </div>
           <p>
             New to this Website? please{" "}
