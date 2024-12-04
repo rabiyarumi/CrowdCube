@@ -1,10 +1,16 @@
 import { useContext } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 
 const Navbar = () => {
 
-  const {user} = useContext(AuthContext)
+  const {user, userLogout} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    userLogout();
+    navigate("/");
+  };
 
 
     const links = (
@@ -56,7 +62,10 @@ const Navbar = () => {
 
     {
       user ? 
-      <p><img src={user.photoURL} alt="user avatar" className='h-12 w-12 rounded-full' /></p> : 
+      <div className='flex'>
+        <img src={user.photoURL} alt="user avatar" className='h-12 w-12 rounded-full' />
+        <button onClick={logOut} className='btn '>Out</button>
+      </div> : 
       <div>
         <Link to={"/login"} className='btn btn-secondary'>Log in</Link>
         <Link to={"/register"} className='btn btn-outline'>Register</Link>

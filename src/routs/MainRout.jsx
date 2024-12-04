@@ -26,8 +26,8 @@ const router = createBrowserRouter([
             element:<AddCampaign/>,
         },
         {
-            path: "/login",
-            element:<Login/>,
+           path: "/login",
+           element: <Login/>
         },
         {
             path: "/register",
