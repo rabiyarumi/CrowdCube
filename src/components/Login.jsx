@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const {userLogin, googleLogin} = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleLogin= e => {
         e.preventDefault();
@@ -22,6 +24,10 @@ const Login = () => {
                 imageHeight: 200,
                 imageAlt: "Custom image"
               });
+
+              const redirectTo = location.state?.from || "/";
+              navigate(redirectTo);
+              
         })
         .catch(error => {
             Swal.fire({
@@ -43,6 +49,9 @@ const Login = () => {
                 imageHeight: 200,
                 imageAlt: "Custom image"
               });
+
+              const redirectTo = location.state?.from || "/";
+              navigate(redirectTo);
         })
     }
 

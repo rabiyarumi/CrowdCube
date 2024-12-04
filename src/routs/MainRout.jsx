@@ -7,6 +7,7 @@ import AddCampaign from "../components/AddCampaign";
 import AllCampaigns from "../components/AllCampaigns";
 import Login from "../components/Login";
 import Register from "../components/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,9 @@ const router = createBrowserRouter([
         },
         {
             path: "/addCampaigns",
-            element:<AddCampaign/>,
+            element:<PrivateRoute>
+              <AddCampaign/>
+            </PrivateRoute>,
         },
         {
            path: "/login",
