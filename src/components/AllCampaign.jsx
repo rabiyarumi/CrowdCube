@@ -1,38 +1,41 @@
 import React from "react";
 
-const AllCampaign = () => {
-  return (
+const AllCampaign = ({campaign, setCampaigns, index}) => {
+    const {title, thumbnail, deadline, amount, type} = campaign;
+
+   return (
     
           <>
             {/* row 1 */}
             <tr>
               <th>
-                1
+                {index + 1}
               </th>
               <td>
-                <div className="flex items-center gap-3">
+                <div className="flex  items-center gap-3">
                   <div className="avatar">
                     <div className="mask mask-squircle h-12 w-12">
                       <img
-                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                        alt="Avatar Tailwind CSS Component"
+                        src={thumbnail}
+                        alt="Fund thumbnail"
                       />
                     </div>
                   </div>
                   <div>
-                    <div className="font-bold">Hart Hagerty</div>
-                    <div className="text-sm opacity-50">United States</div>
+                    <div className="font-bold">{title}</div>
+                    <div className="text-sm opacity-50">{type}</div>
                   </div>
                 </div>
               </td>
               <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span className="badge badge-ghost badge-sm">
-                  Desktop Support Technician
-                </span>
+                {amount}
+                
               </td>
-              <td>Purple</td>
+              <td>
+                {deadline}
+                
+              </td>
+              <td><button className="btn btn-ghost btn-xs">Update</button></td>
               <th>
                 <button className="btn btn-ghost btn-xs">details</button>
               </th>

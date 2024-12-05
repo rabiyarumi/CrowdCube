@@ -11,6 +11,7 @@ const AddCampaign = () => {
     const handleAddCampaign = e => {
         e.preventDefault();
         const form = e.target;
+        
         const title = form.title.value;
         const type = form.type.value;
         const thumbnail = form.thumbnail.value;
@@ -20,7 +21,13 @@ const AddCampaign = () => {
         const userName = form.userName.value;
         const userEmail = form.userEmail.value;
 
-      const newCampaign = {title, type, thumbnail, description, deadline, amount, userName, userEmail};
+        //check if the campaing is active 
+        const currentDate = new Date();
+        const deadlineDate = new Date(startDate);
+        const isActive = deadlineDate >= currentDate;
+
+
+      const newCampaign = {title, type, thumbnail, description, deadline, amount, userName, userEmail, isActive};
 
       //send data to server
       fetch("http://localhost:5000/campaigns", {
@@ -153,7 +160,7 @@ const AddCampaign = () => {
         </div>
        
         <div className="form-control mt-4 md:col-span-2">
-          <button className="btn btn-primary">Login</button>
+          <button className="btn btn-primary">Add Campaign</button>
         </div>
         </div>
       </form>

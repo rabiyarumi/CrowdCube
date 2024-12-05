@@ -8,6 +8,7 @@ import AllCampaigns from "../components/AllCampaigns";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Details from "../components/Details";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
         {
             path: "/register",
             element:<Register/>,
+        },
+        {
+            path: "/details",
+            element:<PrivateRoute>
+              <Details/>
+            </PrivateRoute> ,
         },
       ]
     },
