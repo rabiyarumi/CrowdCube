@@ -18,7 +18,7 @@ const AllCampaigns = () => {
               <th>Fund Name</th>
               <th>Min-amount</th>
               <th>Deadline</th>
-              <th>Update</th>
+              
               <th>Details</th>
             </tr>
           </thead>
