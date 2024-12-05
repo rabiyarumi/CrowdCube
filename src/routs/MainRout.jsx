@@ -9,6 +9,8 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Details from "../components/Details";
+import MyDonation from "../components/MyDonation";
+import MyCampaign from "../components/MyCampaign";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +47,19 @@ const router = createBrowserRouter([
             </PrivateRoute> ,
             loader: ({params}) => fetch(`http://localhost:5000/campaigns/${params.id}`)
         },
+        {
+            path: "/donations/:email",
+            element:<PrivateRoute>
+              <MyDonation/>
+            </PrivateRoute> ,
+            loader: ({params}) => fetch(`http://localhost:5000/donations/${params.email}`)
+        },
+        {
+          path: "/myCampaign",
+          element: <PrivateRoute>
+            <MyCampaign/>
+          </PrivateRoute>
+        }
       ]
     },
   ]);
