@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddCampaign = () => {
     const {user} = useContext(AuthContext);
@@ -10,11 +11,38 @@ const AddCampaign = () => {
     const handleAddCampaign = e => {
         e.preventDefault();
         const form = e.target;
-        const campaignTitle = form.title.value;
+        const title = form.title.value;
+        const type = form.type.value;
+        const thumbnail = form.thumbnail.value;
+        const description = form.description.value;
         const deadline = startDate.toLocaleDateString("en-GB");
+        const amount = form.amount.value;
+        const userName = form.userName.value;
+        const userEmail = form.userEmail.value;
 
-        const newCampaign = {campaignTitle, deadline, };
-        console.log(newCampaign)
+      const newCampaign = {title, type, thumbnail, description, deadline, amount, userName, userEmail};
+
+      //send data to server
+      fetch("http://localhost:5000/campaigns", {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify(newCampaign)
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if(data.insertedId){
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Coffee Added Successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      })
     }
     
 
@@ -103,7 +131,7 @@ const AddCampaign = () => {
           </label>
           <input
             type="text"
-            name="name"
+            name="userName"
             value={user.displayName}
             className="input input-bordered"
             required
@@ -117,7 +145,7 @@ const AddCampaign = () => {
           </label>
           <input
             type="email"
-            name="email"
+            name="userEmail"
             value={user.email}
             className="input input-bordered"
             required
