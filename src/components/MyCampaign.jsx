@@ -75,7 +75,7 @@ const MyCampaign = ({campaign, index, campaigns, setCampaigns}) => {
             {deadline}
           </td>
           <th>
-            <Link >Update</Link>
+            <Link to={`/updateCampaign/${_id}`} >Update</Link>
           </th>
           <th>
             <Link onClick={() => handleDelete(_id)} >Delete</Link>
