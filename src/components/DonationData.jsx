@@ -10,7 +10,7 @@ const DonationData = ({ donation }) => {
     userEmail,
     donatedAmount,
     donarAdvise,
-  } = donation;
+  } = donation || {};
   return (
     <div className="card card-compact bg-base-100  shadow-xl">
       <figure>

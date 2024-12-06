@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const AllCampaign = ({campaign, setCampaigns, index}) => {
-    const {_id, title, thumbnail, deadline, amount, type} = campaign;
+    const {_id, title, thumbnail, deadline, amount, type} = campaign || {};
 
    return (
     
@@ -37,7 +37,7 @@ const AllCampaign = ({campaign, setCampaigns, index}) => {
                 
               </td>
               <th>
-                <Link to={`/campaigns/${_id}`} className="btn btn-ghost btn-xs">details</Link>
+                <Link to={`/campaign/${_id}`} className="btn btn-ghost btn-xs">details</Link>
               </th>
             </tr>
             </>

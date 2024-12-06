@@ -10,12 +10,13 @@ import Register from "../components/Register";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Details from "../components/Details";
 import MyDonation from "../components/MyDonation";
-import MyCampaign from "../components/MyCampaign";
+import MyCampaigns from "../components/MyCampaigns";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Homepage />,
+      
       children: [
         {
             path: "/",
@@ -41,11 +42,11 @@ const router = createBrowserRouter([
             element:<Register/>,
         },
         {
-            path: "/campaigns/:id",
+            path: "/campaign/:id",
             element:<PrivateRoute>
               <Details/>
             </PrivateRoute> ,
-            loader: ({params}) => fetch(`http://localhost:5000/campaigns/${params.id}`)
+            loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
         },
         {
             path: "/donations/:email",
@@ -55,10 +56,11 @@ const router = createBrowserRouter([
             loader: ({params}) => fetch(`http://localhost:5000/donations/${params.email}`)
         },
         {
-          path: "/myCampaign",
+          path: "campaigns/:email",
           element: <PrivateRoute>
-            <MyCampaign/>
-          </PrivateRoute>
+            <MyCampaigns/>
+          </PrivateRoute>,
+          loader: ({params}) => fetch(`http://localhost:5000/campaigns/${params.email}`)
         }
       ]
     },

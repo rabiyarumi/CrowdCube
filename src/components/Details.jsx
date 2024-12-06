@@ -18,7 +18,7 @@ const Details = () => {
     userName,
     userEmail,
     isActive,
-  } = campaign;
+  } = campaign || {};
 
   const handleDonate = e => {
     e.preventDefault();
