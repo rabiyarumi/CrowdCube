@@ -12,12 +12,13 @@ import Details from "../components/Details";
 import MyDonation from "../components/MyDonation";
 import MyCampaigns from "../components/MyCampaigns";
 import UpdateCampaign from "../components/UpdateCampaign";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
       path: "/",
       element: <Homepage />,
-      
+      errorElement: <ErrorPage/>,
       children: [
         {
             path: "/",

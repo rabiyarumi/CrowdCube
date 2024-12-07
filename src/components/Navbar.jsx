@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
-const Navbar = () => {
+const Navbar = ({theme, setTheme}) => {
   const { user, userLogout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -11,6 +11,18 @@ const Navbar = () => {
     navigate("/");
   };
 
+  //toggle theme
+  const handleToggle = e => {
+    // e.preventDefault()
+    
+    if(e.target.checked) {
+      setTheme("dark");
+    }
+    else{
+      setTheme("light")
+    }
+  }
+ 
   const links = (
     <>
       <NavLink to={"/"}>Home</NavLink>
@@ -83,7 +95,7 @@ const Navbar = () => {
         )}
         <label className="swap swap-rotate">
           {/* this hidden checkbox controls the state */}
-          <input type="checkbox" />
+          <input type="checkbox" onChange={handleToggle} />
 
           {/* sun icon */}
           <svg
