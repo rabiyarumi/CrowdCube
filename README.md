@@ -29,12 +29,17 @@
 
 ## Tech Stack  
 
-- **Frontend**: React.js, Tailwind CSS, Firebase for authentication.  
+- **Frontend**: React.js, Tailwind CSS, Daisy UI, Firebase for authentication.  
 - **Backend**: Node.js, Express.js, MongoDB for data storage.  
-- **Deployment**: Netlify (Client) and Vercel (Server).  
+- **Deployment**: Firebase (Client) and Vercel (Server).  
 
-## Setup Instructions  
+## React NPM Packages Used  
 
-1. Clone the repository:  
-   ```bash  
-   git clone <repository-url>  
+1. **`react-router-dom`**: For managing routing and navigation in the client-side application.  
+2. **`firebase`**: For implementing user authentication via Firebase Authentication.  
+3. **`react-toastify`**: For displaying error, success, and informational messages as toasts.  
+4. **`lottie-react`**: For rendering interactive Lottie animations.  
+5. **`react-simple-typewriter`**: For adding typewriter-style animated text effects.  
+6. **`react-awesome-reveal`**: For implementing scroll-based animations.  
+7. **`react-tooltip`**: For showing tooltips with additional information.  
+
