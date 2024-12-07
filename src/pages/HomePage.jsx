@@ -17,7 +17,7 @@ const Homepage = () => {
 
 
     return (
-        <div className='flex flex-col min-h-screen  ' >
+        <div className='flex flex-col items-center min-h-screen  ' >
            <Navbar theme={theme} setTheme={setTheme} />
           
             
