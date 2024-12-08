@@ -23,12 +23,12 @@ const router = createBrowserRouter([
         {
             path: "/",
             element: <Home/>,
-            loader:() => fetch("http://localhost:5000/activeCampaigns")
+            loader:() => fetch("https://crowdcube-server-seven.vercel.app/activeCampaigns")
         },
         {
             path: "/campaigns",
             element: <AllCampaigns/>,
-            loader: () => fetch("http://localhost:5000/campaigns")
+            loader: () => fetch("https://crowdcube-server-seven.vercel.app/campaigns")
         },
         {
             path: "/addCampaigns",
@@ -49,28 +49,28 @@ const router = createBrowserRouter([
             element:<PrivateRoute>
               <Details/>
             </PrivateRoute> ,
-            loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+            loader: ({params}) => fetch(`https://crowdcube-server-seven.vercel.app/campaign/${params.id}`)
         },
         {
             path: "/updateCampaign/:id",
             element:<PrivateRoute>
             <UpdateCampaign/>
             </PrivateRoute> ,
-            loader: ({params}) => fetch(`http://localhost:5000/campaign/${params.id}`)
+            loader: ({params}) => fetch(`https://crowdcube-server-seven.vercel.app/campaign/${params.id}`)
         },
         {
             path: "/donations/:email",
             element:<PrivateRoute>
               <MyDonation/>
             </PrivateRoute> ,
-            loader: ({params}) => fetch(`http://localhost:5000/donations/${params.email}`)
+            loader: ({params}) => fetch(`https://crowdcube-server-seven.vercel.app/donations/${params.email}`)
         },
         {
           path: "campaigns/:email",
           element: <PrivateRoute>
             <MyCampaigns/>
           </PrivateRoute>,
-          loader: ({params}) => fetch(`http://localhost:5000/campaigns/${params.email}`)
+          loader: ({params}) => fetch(`https://crowdcube-server-seven.vercel.app/campaigns/${params.email}`)
         }
       ]
     },

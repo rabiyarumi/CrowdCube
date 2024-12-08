@@ -19,7 +19,7 @@ const MyCampaign = ({campaign, index, campaigns, setCampaigns}) => {
             if (result.isConfirmed) {
 
                 //delete data from database 
-                fetch(`http://localhost:5000/campaign/${id}`, {
+                fetch(`https://crowdcube-server-seven.vercel.app/campaign/${id}`, {
                     method: 'DELETE'
                 })
                 .then((res) => res.json())

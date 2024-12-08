@@ -38,7 +38,7 @@ const UpdateCampaign = () => {
         const updatedCampaign = {title, type, thumbnail, description, deadline, amount, userName, userEmail, isActive};
 
         // update data in server
-        fetch(`http://localhost:5000/campaign/${_id}`, {
+        fetch(`https://crowdcube-server-seven.vercel.app/campaign/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

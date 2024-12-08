@@ -44,7 +44,7 @@ const Details = () => {
     }
 
     //send data to the server
-     fetch("http://localhost:5000/donations", {
+     fetch("https://crowdcube-server-seven.vercel.app/donations", {
         method: "POST",
         headers: {
           'content-type': 'application/json'
