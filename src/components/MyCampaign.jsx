@@ -1,4 +1,6 @@
 import React from 'react';
+import { IoIosCreate } from 'react-icons/io';
+import { MdDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -75,10 +77,10 @@ const MyCampaign = ({campaign, index, campaigns, setCampaigns}) => {
             {deadline}
           </td>
           <th>
-            <Link to={`/updateCampaign/${_id}`} >Update</Link>
+            <Link to={`/updateCampaign/${_id}`} ><IoIosCreate  size={23} className='text-primary'/></Link>
           </th>
           <th>
-            <Link onClick={() => handleDelete(_id)} >Delete</Link>
+            <Link onClick={() => handleDelete(_id)} ><MdDelete size={23} className='text-primary' /></Link>
           </th>
         </tr>
         </>

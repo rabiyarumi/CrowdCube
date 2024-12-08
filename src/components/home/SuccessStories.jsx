@@ -34,7 +34,7 @@ const successStories = [
 
 const SuccessStories = () => {
   return (
-    <section className="py-16 ">
+    <section className="py-16 md:w-[85%] mx-auto">
       <div className=" mx-auto px-6">
         <div className="text-center">
           <h2 className="text-4xl font-bold">

@@ -31,7 +31,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className=" py-16 px-6">
+    <section className=" py-16 px-6 md:w-[85%] mx-auto">
       <div className=" mx-auto text-center">
         {/* Title with Typewriter */}
         <h2 className="text-3xl font-bold   mb-4">

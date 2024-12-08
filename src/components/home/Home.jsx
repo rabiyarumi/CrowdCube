@@ -14,7 +14,7 @@ const Home = () => {
         <Banner />
       </div>
       
-   <div className="w-[85%] mx-auto my-8 md:my-12 ">
+   <div className="md:w-[85%] mx-auto my-8 md:my-12 ">
    <h2 className="text-3xl font-bold text-center   mb-4">
           <span className="text-primary">  Explore Running</span> Campaigns
         </h2>

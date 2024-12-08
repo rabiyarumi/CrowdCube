@@ -8,7 +8,11 @@ const MyCampaigns = () => {
     // console.log(campaigns)
     return (
         <div className='my-8'>
-       <h1 className='text-center text-2xl font-bold'>My Campaign</h1>
+       <h2 className="text-3xl font-bold text-center  mb-4">
+          My <span className="text-primary"> Campaigns</span> 
+        </h2>
+
+        
        {
         campaigns.length > 0 ? 
         <div className="overflow-x-scroll">
@@ -16,7 +20,7 @@ const MyCampaigns = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>Serial</th>
+              <th></th>
               <th>Fund Name</th>
               <th>Min-amount</th>
               <th>Deadline</th>
