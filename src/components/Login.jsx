@@ -121,7 +121,7 @@ const Login = () => {
           <button className="btn btn-primary">Login</button>
         </div>
         <div className="form-control mt-6">
-          <button onClick={handleGoogleLogin} className="btn btn-outline">
+          <button onClick={handleGoogleLogin} className="btn btn-outline btn-primary">
             Login with Google
           </button>
         </div>

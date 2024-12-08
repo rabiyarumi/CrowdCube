@@ -9,10 +9,10 @@ const ActiveCampaign = ({ campaign }) => {
 
   return (
     <div className="card bg-base-100  md:flex-row shadow-xl">
-      <figure className="px-4 pt-6 ">
+      <figure className=" pt-6 ">
         <img src={thumbnail} alt="Shoes" className="rounded-full h-36 w-36" />
       </figure>
-      <div className="card-body items-center text-center">
+      <div className="card-body px-0 items-center text-center">
         <h2 className="card-title">{title}</h2>
         <p>{deadline}</p>
         <div className="card-actions">

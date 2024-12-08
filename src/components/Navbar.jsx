@@ -51,7 +51,7 @@ const Navbar = ({ theme, setTheme }) => {
     <div className="navbar bg-base-100 md:w-[90%] mx-auto  z-50 bg-transparent">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -80,7 +80,7 @@ const Navbar = ({ theme, setTheme }) => {
       </div>
 
       {/* Center */}
-      <div className="navbar-center hidden md:flex ">
+      <div className="navbar-center hidden lg:flex ">
         <ul className="menu menu-horizontal px-1 gap-5">{links}</ul>
       </div>
 
