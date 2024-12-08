@@ -1,28 +1,30 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
-const Navbar = ({theme, setTheme}) => {
+const Navbar = ({ theme, setTheme }) => {
   const { user, userLogout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const logOut = () => {
     userLogout();
     navigate("/");
+    setIsOpen(false);
   };
 
   //toggle theme
-  const handleToggle = e => {
+  const handleToggle = (e) => {
     // e.preventDefault()
-    
-    if(e.target.checked) {
+
+    if (e.target.checked) {
       setTheme("dark");
+    } else {
+      setTheme("light");
     }
-    else{
-      setTheme("light")
-    }
-  }
- 
+  };
+
   const links = (
     <>
       <NavLink to={"/"}>Home</NavLink>
@@ -34,7 +36,7 @@ const Navbar = ({theme, setTheme}) => {
   );
 
   return (
-    <div className="navbar bg-base-100 w-[80%] mx-auto  z-50 bg-transparent">
+    <div className="navbar bg-base-100 md:w-[90%] mx-auto  z-50 bg-transparent">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -76,19 +78,33 @@ const Navbar = ({theme, setTheme}) => {
           <div className="flex">
             <img
               src={user.photoURL}
+              data-tooltip-id="user-tooltip"
+              // onMouseEnter={() => setIsOpen(true)}
+              // onMouseLeave={() => setIsOpen(false)}
+
               alt="user avatar"
               className="h-12 w-12 rounded-full"
             />
-            <button onClick={logOut} className="btn ">
-              Out
-            </button>
+            <Tooltip
+              id="user-tooltip"
+              place="bottom"
+              clickable
+              content={
+                <div>
+                  <p>{user.displayName}</p>
+                  <button onClick={logOut} className="btn">
+                    Log Out
+                  </button>
+                </div>
+              }
+            />
           </div>
         ) : (
           <div>
-            <Link to={"/login"} className="btn btn-secondary">
+            <Link to={"/login"} className="btn btn-secondary btn-sm">
               Log in
             </Link>
-            <Link to={"/register"} className="btn btn-outline">
+            <Link to={"/register"} className="btn btn-outline btn-sm">
               Register
             </Link>
           </div>
