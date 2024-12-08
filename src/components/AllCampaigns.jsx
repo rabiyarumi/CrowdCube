@@ -18,7 +18,10 @@ const AllCampaigns = () => {
   return (
     <div className="w-full md:w-[85%] mx-auto my-10 data-theme:dark "  >
       <h1 className="text-4xl font-bold text-center mb-6">All campaigns</h1>
-      <button onClick={handleSort} className="btn btn-primary">Sort</button>
+      <div className="flex justify-end my-6">
+      <button onClick={handleSort} className="btn btn-primary ">Sort</button>
+
+      </div>
       <div className="overflow-x-scroll">
         <table className="table ">
           {/* head */}

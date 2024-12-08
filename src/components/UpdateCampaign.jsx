@@ -9,10 +9,10 @@ import Swal from 'sweetalert2';
 const UpdateCampaign = () => {
     const data = useLoaderData();
     const {user} = useContext(AuthContext)
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState(new Date(data?.deadline || new Date()) );
     const Navigate = useNavigate()
 
-    const {_id, title, type, thumbnail, description, amount, } = data || {};
+    const {_id, title, type, thumbnail, description, amount } = data || {};
 
 
     console.log(data)
@@ -79,13 +79,13 @@ const UpdateCampaign = () => {
         {/* title */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text  md:w-1/2">Campaign title</span>
+            <span className="label-text  md:w-1/2">title</span>
           </label>
           <input
             type="text"
             name="title"
             defaultValue={title}
-            placeholder="Campaign title"
+            placeholder="title"
             className="input input-bordered"
             required
           />
@@ -93,7 +93,7 @@ const UpdateCampaign = () => {
         {/* Campaign type */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text  md:w-1/2">Campaign type</span>
+            <span className="label-text  md:w-1/2">type</span>
           </label>
           <select className="input input-bordered " name="type" defaultValue={type} id="type">
                 <option value="startup">Startup</option>
@@ -136,13 +136,13 @@ const UpdateCampaign = () => {
           <label className="label">
             <span className="label-text  md:w-1/2">Deadline</span>
           </label>
-          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} name="deadline"  className="input input-bordered w-full"/>
+          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}  name="deadline"  className="input input-bordered w-full"/>
           
         </div>
         {/* amount */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text  md:w-1/2">Minimum donation amount</span>
+            <span className="label-text  md:w-1/2">Min-amount</span>
           </label>
           <input
             type="number"
@@ -161,7 +161,7 @@ const UpdateCampaign = () => {
           <input
             type="text"
             name="userName"
-            value={user.displayName}
+            value={user?.displayName}
             className="input input-bordered"
             required
           />
@@ -175,7 +175,7 @@ const UpdateCampaign = () => {
           <input
             type="email"
             name="userEmail"
-            value={user.email}
+            value={user?.email}
             className="input input-bordered"
             required
           />

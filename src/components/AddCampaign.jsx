@@ -16,11 +16,12 @@ const AddCampaign = () => {
         const type = form.type.value;
         const thumbnail = form.thumbnail.value;
         const description = form.description.value;
-        const deadline = startDate.toLocaleDateString("en-GB");
+        const deadline = startDate.toLocaleDateString();
         const amount = form.amount.value;
         const userName = form.userName.value;
         const userEmail = form.userEmail.value;
 
+        // .toLocaleDateString("en-GB")
         //check if the campaing is active 
         const currentDate = new Date();
         const deadlineDate = new Date(startDate);
@@ -44,7 +45,7 @@ const AddCampaign = () => {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Coffee Added Successfully",
+            title: "Campaign Added Successfully",
             showConfirmButton: false,
             timer: 1500
           });
