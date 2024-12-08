@@ -8,7 +8,7 @@ const ActiveCampaign = ({ campaign }) => {
 
 
   return (
-    <div className="card bg-base-100  flex-row shadow-xl">
+    <div className="card bg-base-100  md:flex-row shadow-xl">
       <figure className="px-4 pt-6 ">
         <img src={thumbnail} alt="Shoes" className="rounded-full h-36 w-36" />
       </figure>
@@ -19,7 +19,7 @@ const ActiveCampaign = ({ campaign }) => {
           <Link
             to={`/campaign/${_id}`}
             id="my-anchor-element"
-            className="btn btn-outline btn-sm"
+            className="btn btn-primary btn-sm"
           >
             See More
           </Link>

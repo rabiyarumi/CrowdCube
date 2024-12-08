@@ -28,6 +28,8 @@ const Details = () => {
     const donarName = user.displayName;
     const donarEmail = user.email;
 
+    const currentDate = new Date();
+
     const newDonation = {title,
         type,
         thumbnail,
@@ -43,27 +45,42 @@ const Details = () => {
         donarEmail
     }
 
-    //send data to the server
+    if(deadline < currentDate){
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "This Deadline Has been Ended",
+        showConfirmButton: false,
+        timer: 1500
+      });
+      return
+    }
+    else{
+
+      //send data to the server
      fetch("https://crowdcube-server-seven.vercel.app/donations", {
-        method: "POST",
-        headers: {
-          'content-type': 'application/json'
-        },
-        body: JSON.stringify(newDonation)
-      })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
-        if(data.insertedId){
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "You Have donated Successfully",
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
-      })
+      method: "POST",
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newDonation)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)
+      if(data.insertedId){
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "You Have donated Successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+    })
+    }
+
+    
     
 
     // console.log(newDonation)
@@ -76,18 +93,20 @@ const Details = () => {
         <div className="hero-content flex-col md:flex-row">
 
 
-          <div className="card card-compact bg-base-100 ">
-            <figure>
+          <div className="card card-compact  ">
+            <figure className="h-72 ">
               <img
                 src={thumbnail}
                 alt="Shoes"
+                className="h-full "
               />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{title}</h2>
               <p>{description}</p>
-              <h2 className="card-title">Deadline: {deadline}</h2>
-              <h2 className="card-title">Amount: {amount}</h2>
+              <h2 className="text-lg"><span className="text-primary">Type:</span> {type}</h2>
+              <h2 className="text-lg"><span className="text-primary">Deadline:</span> {deadline}</h2>
+              <h2 className="text-lg"><span className="text-primary">Amount:</span> {amount}</h2>
 
               
             </div>

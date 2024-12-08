@@ -44,9 +44,6 @@ const Banner = () => {
           Discover and support innovative campaigns. Every small contribution
           can lead to a big change!
         </p>
-        <Link to={"/campaigns"} className="mt-6 btn border-none text-white bg-purple-600 ">
-          Get Started
-        </Link>
       </div>
 
       {/* Slides Container */}

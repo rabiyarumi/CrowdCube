@@ -27,11 +27,23 @@ const Navbar = ({ theme, setTheme }) => {
 
   const links = (
     <>
-      <NavLink to={"/"}>Home</NavLink>
-      <NavLink to={"/campaigns"}>Campaigns</NavLink>
-      <NavLink to={"/addCampaigns"}>Add Campaign</NavLink>
-      <NavLink to={`/campaigns/${user?.email}`}>My Campaign</NavLink>
-      <NavLink to={`/donations/${user?.email}`}>My Donation</NavLink>
+      <NavLink to={"/"}  className={({ isActive }) =>
+          `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
+        }
+       
+      >Home</NavLink>
+      <NavLink to={"/campaigns"}  className={({ isActive }) =>
+          `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
+        }  >Campaigns</NavLink>
+      <NavLink to={"/addCampaigns"} className={({ isActive }) =>
+          `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
+        } >Add Campaign</NavLink>
+      <NavLink to={`/campaigns/${user?.email}`} className={({ isActive }) =>
+          `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
+        } >My Campaign</NavLink>
+      <NavLink to={`/donations/${user?.email}`} className={({ isActive }) =>
+          `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
+        } >My Donation</NavLink>
     </>
   );
 
@@ -62,7 +74,7 @@ const Navbar = ({ theme, setTheme }) => {
             {links}
           </ul>
         </div>
-        <Link to={"/"} className="btn btn-ghost text-xl">
+        <Link to={"/"} className="text-xl font-bold md:text-2xl text-primary ">
           Crowdcube
         </Link>
       </div>
@@ -109,13 +121,13 @@ const Navbar = ({ theme, setTheme }) => {
             </Link>
           </div>
         )}
-        <label className="swap swap-rotate">
+        <label className="swap swap-rotate ">
           {/* this hidden checkbox controls the state */}
           <input type="checkbox" onChange={handleToggle} />
 
           {/* sun icon */}
           <svg
-            className="swap-on h-8 w-8 fill-current"
+            className="swap-on h-8 w-8 fill-current text-primary"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
@@ -124,7 +136,7 @@ const Navbar = ({ theme, setTheme }) => {
 
           {/* moon icon */}
           <svg
-            className="swap-off h-8 w-8 fill-current"
+            className="swap-off h-8 w-8 fill-current text-primary"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >

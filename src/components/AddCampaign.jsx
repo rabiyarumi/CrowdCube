@@ -61,7 +61,7 @@ const AddCampaign = () => {
         {/* title */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text  md:w-1/2">Campaign title</span>
+            <span className="label-text  md:w-1/2">Title</span>
           </label>
           <input
             type="text"
@@ -74,7 +74,7 @@ const AddCampaign = () => {
         {/* Campaign type */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text  md:w-1/2">Campaign type</span>
+            <span className="label-text  md:w-1/2">Type</span>
           </label>
           <select className="input input-bordered " name="type" id="type">
                 <option value="startup">Startup</option>
@@ -121,7 +121,7 @@ const AddCampaign = () => {
         {/* amount */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text  md:w-1/2">Minimum donation amount</span>
+            <span className="label-text  md:w-1/2">Min-amount</span>
           </label>
           <input
             type="number"
