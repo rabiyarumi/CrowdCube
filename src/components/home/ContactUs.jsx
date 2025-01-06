@@ -74,9 +74,7 @@ const ContactUs = () => {
           <h4 className="text-xl font-bold">Based in</h4>
           <p className="opacity-75">Dhaka, Bangladesh</p>
           </div>
-          <div>
-          <h4 className="text-xl font-bold">social</h4>
-          </div>
+          
            
           </div>
         </div>

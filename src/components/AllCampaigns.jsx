@@ -41,31 +41,11 @@ const AllCampaigns = () => {
       <button onClick={handleSort} className="btn btn-primary ">Sort</button>
 
       </div>
-      <div className="overflow-x-scroll">
-        <table className="table ">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>Serial</th>
-              <th>Fund Name</th>
-              <th>Min-amount</th>
-              <th>Deadline</th>
-              
-              <th>Details</th>
-            </tr>
-          </thead>
-          <tbody>
-            {campaigns.map((campaign, index) => (
-              <AllCampaign
-                key={campaign._id}
-                index={index}
-                campaign={campaign}
-                setCampaigns={setCampaigns}
-              ></AllCampaign>
-            ))}
-          </tbody>
-        </table>
-      </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {
+            campaigns.map(campaign => <AllCampaign key={campaign._id} campaign={campaign}/>)
+          }
+        </div>
     </div>
   );
 };
