@@ -35,20 +35,32 @@ const Navbar = ({ theme, setTheme }) => {
       <NavLink to={"/campaigns"}  className={({ isActive }) =>
           `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
         }  >Campaigns</NavLink>
-      <NavLink to={"/addCampaigns"} className={({ isActive }) =>
+      <NavLink to={"/about"}  className={({ isActive }) =>
           `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
-        } >Add Campaign</NavLink>
-      <NavLink to={`/campaigns/${user?.email}`} className={({ isActive }) =>
+        }  >AboutUs</NavLink>
+      <NavLink to={"/faq"}  className={({ isActive }) =>
           `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
-        } >My Campaign</NavLink>
-      <NavLink to={`/donations/${user?.email}`} className={({ isActive }) =>
-          `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
-        } >My Donation</NavLink>
+        }  >FAQ</NavLink>
+
+        {
+          user &&  <>
+          <NavLink to={"/addCampaigns"} className={({ isActive }) =>
+            `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
+          } >Add Campaign</NavLink>
+        <NavLink to={`/campaigns/${user?.email}`} className={({ isActive }) =>
+            `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
+          } >My Campaign</NavLink>
+        <NavLink to={`/donations/${user?.email}`} className={({ isActive }) =>
+            `bg-transparent font-semibold  ${isActive ? "text-primary" : ""}`
+          } >My Donation</NavLink></> 
+        }
+
+      
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 md:w-[90%] mx-auto  z-50 bg-transparent">
+    <div className="navbar bg-base-300 bg-opacity-45 md:w-[94%]  mx-auto md:px-10 z-50 bg-transparent sticky top-0 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -75,7 +87,9 @@ const Navbar = ({ theme, setTheme }) => {
           </ul>
         </div>
         <Link to={"/"} className="text-xl font-bold md:text-2xl text-primary ">
-          Crowdcube
+       
+        <span>Crowdcube</span>
+          
         </Link>
       </div>
 
@@ -113,12 +127,10 @@ const Navbar = ({ theme, setTheme }) => {
           </div>
         ) : (
           <div>
-            <Link to={"/login"} className="btn btn-secondary btn-sm">
+            <Link to={"/login"} className="btn btn-primary btn-sm">
               Log in
             </Link>
-            <Link to={"/register"} className="btn btn-outline btn-sm">
-              Register
-            </Link>
+           
           </div>
         )}
         <label className="swap swap-rotate ">

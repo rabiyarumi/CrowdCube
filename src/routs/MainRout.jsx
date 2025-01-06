@@ -13,6 +13,8 @@ import MyDonation from "../components/MyDonation";
 import MyCampaigns from "../components/MyCampaigns";
 import UpdateCampaign from "../components/UpdateCampaign";
 import ErrorPage from "../pages/ErrorPage";
+import AboutUs from "../pages/AboutUs";
+import FAQ from "../pages/FAQ";
 
 const router = createBrowserRouter([
     {
@@ -45,10 +47,18 @@ const router = createBrowserRouter([
             element:<Register/>,
         },
         {
+            path: "/faq",
+            element:<FAQ/>,
+        },
+        {
+            path: "/about",
+            element:<AboutUs/>,
+        },
+        {
             path: "/campaign/:id",
-            element:<PrivateRoute>
+            element:
               <Details/>
-            </PrivateRoute> ,
+            ,
             loader: ({params}) => fetch(`https://crowdcube-server-seven.vercel.app/campaign/${params.id}`)
         },
         {

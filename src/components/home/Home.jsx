@@ -4,6 +4,7 @@ import ActiveCampaign from "../ActiveCampaign";
 import HowItWorks from "./HowItWorks";
 import { Typewriter } from "react-simple-typewriter";
 import SuccessStories from "./SuccessStories";
+import ContactUs from "./ContactUs";
 
 const Home = () => {
   const activeCampaigns = useLoaderData();
@@ -42,6 +43,7 @@ const Home = () => {
 
    <HowItWorks/>
    <SuccessStories/>
+   <ContactUs/>
     </div>
   );
 };
